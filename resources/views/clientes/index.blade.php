@@ -5,7 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Listado Clientes</div>
+                    <div class="card-header">Listado Clientes <a href="{{route('clientes.create')}}" class="btn btn-danger pull-right">
+                            NUEVO
+                        </a></div>
 
                     <div class="card-body">
 
@@ -22,8 +24,17 @@
                             <tr>
                                 <td>{{$clientes->nombre}}</td>
                                 <td>{{$clientes->anexo}}</td>
-                                <td>editar</td>
-                                <td>eliminar</td>
+                                <td><a href="{{route('clientes.edit',$clientes->id)}}" class="btn btn-dark">EDITAR</a></td>
+                                <td>
+                                    {!! Form::model($cliente,['route'=>['clientes.destroy',$cliente->id],'method'=>'DELETE'])!!}
+                                    {!! Form::submit('Eliminar',['class'=>'btn btn-info']) !!}
+
+
+
+
+
+
+                                </td>
 
                             </tr>
                             @endforeach

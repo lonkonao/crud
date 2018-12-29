@@ -25,16 +25,10 @@
                                 <td>{{$clientes->nombre}}</td>
                                 <td>{{$clientes->anexo}}</td>
                                 <td><a href="{{route('clientes.edit',$clientes->id)}}" class="btn btn-dark">EDITAR</a></td>
-                                <td>
-                                    {!! Form::model($cliente,['route'=>['clientes.destroy',$cliente->id],'method'=>'DELETE'])!!}
-                                    {!! Form::submit('Eliminar',['class'=>'btn btn-info']) !!}
 
-
-
-
-
-
-                                </td>
+                                <td>{!! Form::model($clientes,['route'=>['clientes.destroy',$clientes->id],'method'=>'DELETE'])!!}
+                                    {!! Form::submit('Eliminar',['class'=>'btn btn-info']) !!}</td>
+                                    {!! Form::close() !!}
 
                             </tr>
                             @endforeach
